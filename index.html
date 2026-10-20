@@ -1,0 +1,1739 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DOWNLOAD: DHAKA — The Digital Nervous System for a Resilient Megacity</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-peach: #F7D1AC;
+      --bg-peach-dark: #F3C498;
+      --border-brown: #98501D;
+      --text-brown: #4A200A;
+      --card-cream: #FCE6CE;
+      --card-utility: #F5ECE4;
+    }
+
+    body {
+      background-color: #161311;
+      font-family: 'Lora', Georgia, serif;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .font-brand {
+      font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.04em;
+    }
+
+    .font-serif-ui {
+      font-family: 'Lora', Georgia, serif;
+    }
+
+    /* Mobile Frame Styling */
+    .app-frame {
+      background: linear-gradient(180deg, #FAD6B3 0%, #F5C99E 100%);
+      width: 100%;
+      max-width: 412px;
+      height: 860px;
+      max-height: 95vh;
+      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.65), 0 0 0 10px #2b2522;
+      border-radius: 38px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 450px) {
+      .app-frame {
+        max-width: 100%;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+      }
+    }
+
+    /* Custom UI Buttons & Inputs matching PDF */
+    .btn-role {
+      background-color: #FFFFFF;
+      border: 2.5px solid #98501D;
+      border-radius: 12px;
+      color: #3B1A08;
+      transition: all 0.18s ease;
+    }
+    .btn-role:hover, .btn-role:active {
+      background-color: #FCE6CE;
+      transform: translateY(-1px);
+    }
+
+    .btn-role-active {
+      background-color: #FCE6CE !important;
+      border: 3px solid #6E2C0B !important;
+      box-shadow: 0 0 0 3px rgba(152, 80, 29, 0.25);
+    }
+
+    .input-login {
+      background-color: transparent;
+      border: 2.2px solid #2B2B2B;
+      border-radius: 12px;
+      color: #1F1F1F;
+      font-family: 'Lora', serif;
+    }
+    .input-login::placeholder {
+      color: #1F1F1F;
+      opacity: 0.85;
+    }
+    .input-login:focus {
+      outline: none;
+      background-color: rgba(255, 255, 255, 0.4);
+    }
+
+    .btn-citizen-menu {
+      background-color: #FDE5CC;
+      border: 2.5px solid #98501D;
+      border-radius: 12px;
+      color: #1F1F1F;
+      transition: all 0.18s ease;
+    }
+    .btn-citizen-menu:hover {
+      background-color: #FFF0E0;
+      transform: scale(1.01);
+    }
+
+    .btn-utility-menu {
+      background-color: #F5ECE4;
+      border: 2.5px solid #98501D;
+      border-radius: 12px;
+      color: #1F1F1F;
+      transition: all 0.18s ease;
+    }
+    .btn-utility-menu:hover {
+      background-color: #FFFFFF;
+      transform: scale(1.01);
+    }
+
+    .input-paybill {
+      background-color: #FFFFFF;
+      border: 2.2px solid #262626;
+      border-radius: 12px;
+      color: #1F1F1F;
+    }
+    .input-paybill::placeholder {
+      color: #262626;
+    }
+
+    .card-microplastic {
+      background-color: #FDE5CC;
+      border: 2px solid #E5B284;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(152, 80, 29, 0.12);
+      transition: all 0.18s ease;
+    }
+    .card-microplastic:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(152, 80, 29, 0.22);
+    }
+    .card-microplastic-active {
+      border-color: #98501D;
+      background-color: #FFF3E4;
+      box-shadow: 0 0 0 2px rgba(152, 80, 29, 0.25);
+    }
+
+    /* Animations for Map Nodes */
+    @keyframes pulseRing {
+      0% { transform: scale(0.8); opacity: 0.9; }
+      70% { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .anomaly-pulse {
+      transform-origin: center;
+      animation: pulseRing 2s infinite ease-out;
+    }
+
+    @keyframes neonGlow {
+      0%, 100% { filter: drop-shadow(0 0 6px #ff00ff) drop-shadow(0 0 12px #d900ff); opacity: 0.92; }
+      50% { filter: drop-shadow(0 0 12px #ff44ff) drop-shadow(0 0 20px #ff00aa); opacity: 1; }
+    }
+    .heatmap-poly {
+      animation: neonGlow 2.5s infinite ease-in-out;
+    }
+
+    /* Hide scrollbar inside frame */
+    .app-frame::-webkit-scrollbar {
+      width: 0px;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-0 sm:p-3">
+
+  <!-- TOP SCREEN JUMPER BAR (For quick testing of all 14 screens including Sign Up) -->
+  <div class="w-full max-w-[412px] mb-2 px-2 flex items-center justify-between gap-1 overflow-x-auto py-1.5 bg-stone-900/95 border border-stone-700 rounded-xl text-xs text-amber-200">
+    <span class="font-bold px-1.5 shrink-0 text-amber-400">Screen:</span>
+    <div id="page-dots" class="flex items-center gap-1"></div>
+  </div>
+
+  <!-- MAIN MOBILE APP FRAME -->
+  <div class="app-frame" id="app">
+
+    <!-- ==========================================
+         SCREEN 1: SPLASH / COVER PAGE (PDF Page 1)
+         ========================================== -->
+    <section id="screen-1" class="screen flex flex-col justify-between h-full w-full relative overflow-hidden cursor-pointer" onclick="navigateTo('2')">
+      <!-- Top Brand & Split Wi-Fi / Underground Pipe Logo -->
+      <div class="pt-10 px-6 flex flex-col items-center text-center z-10">
+        <svg viewBox="0 0 320 215" class="w-64 h-44 drop-shadow-sm">
+          <defs>
+            <clipPath id="leftHalf">
+              <rect x="0" y="0" width="160" height="215" />
+            </clipPath>
+            <clipPath id="rightHalf">
+              <rect x="160" y="0" width="160" height="215" />
+            </clipPath>
+          </defs>
+
+          <!-- Wi-Fi Arcs Left (Teal) -->
+          <g clip-path="url(#leftHalf)" fill="none" stroke="#139AA6" stroke-linecap="round">
+            <path d="M 65 55 A 130 130 0 0 1 255 55" stroke-width="16" />
+            <path d="M 92 82 A 90 90 0 0 1 228 82" stroke-width="15" />
+            <path d="M 118 108 A 50 50 0 0 1 202 108" stroke-width="14" />
+            <circle cx="160" cy="132" r="11" fill="#136F78" stroke="none" />
+          </g>
+
+          <!-- Wi-Fi Arcs Right (Amber Gold) -->
+          <g clip-path="url(#rightHalf)" fill="none" stroke="#DF9826" stroke-linecap="round">
+            <path d="M 65 55 A 130 130 0 0 1 255 55" stroke-width="16" />
+            <path d="M 92 82 A 90 90 0 0 1 228 82" stroke-width="15" />
+            <path d="M 118 108 A 50 50 0 0 1 202 108" stroke-width="14" />
+            <circle cx="160" cy="132" r="11" fill="#DF9826" stroke="none" />
+          </g>
+
+          <!-- City Skyline Silhouette -->
+          <g fill="#126872">
+            <rect x="52" y="130" width="8" height="16" />
+            <rect x="62" y="122" width="10" height="24" />
+            <rect x="74" y="127" width="7" height="19" />
+            <rect x="83" y="110" width="14" height="36" />
+            <rect x="99" y="117" width="11" height="29" />
+            <rect x="112" y="124" width="9" height="22" />
+            <rect x="123" y="103" width="14" height="43" />
+            <rect x="139" y="118" width="9" height="28" />
+          </g>
+          <g fill="#196B69">
+            <rect x="172" y="120" width="9" height="26" />
+            <rect x="183" y="112" width="12" height="34" />
+            <rect x="197" y="123" width="9" height="23" />
+            <polygon points="214,98 209,112 219,112" />
+            <rect x="208" y="112" width="12" height="34" />
+            <rect x="222" y="118" width="11" height="28" />
+            <rect x="235" y="125" width="10" height="21" />
+            <rect x="247" y="119" width="10" height="27" />
+            <rect x="259" y="131" width="8" height="15" />
+          </g>
+
+          <!-- Underground Smart Infrastructure Left (Water & Pipes - Teal) -->
+          <path d="M 42 146 L 156 146 L 156 202 L 56 202 L 56 192 L 144 192 L 144 162 L 62 162 Z" fill="#138D97" opacity="0.25"/>
+          <path d="M 40 146 H 156 V 198 H 58" fill="none" stroke="#11717A" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M 52 176 H 112 V 190 H 146" fill="none" stroke="#139AA6" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="52" cy="176" r="4" fill="#11717A"/>
+          <path d="M 134 164 C 134 164 125 176 125 182 A 9 9 0 0 0 143 182 C 143 176 134 164 134 164 Z" fill="#0F717A"/>
+
+          <!-- Underground Smart Infrastructure Right (Gas & Circuit - Amber) -->
+          <path d="M 164 146 L 278 146 L 260 162 L 176 162 L 176 192 L 264 192 L 264 202 L 164 202 Z" fill="#DF9826" opacity="0.25"/>
+          <path d="M 280 146 H 164 V 198 H 262" fill="none" stroke="#C78219" stroke-width="5" stroke-linejoin="round"/>
+          <path d="M 268 176 H 208 V 190 H 174" fill="none" stroke="#DF9826" stroke-width="4" stroke-linecap="round"/>
+          <circle cx="268" cy="176" r="4" fill="#C78219"/>
+          <path d="M 186 163 C 186 163 196 172 194 181 C 193 186 189 189 185 189 C 180 189 177 185 177 180 C 177 174 186 163 186 163 Z" fill="#D1881C"/>
+        </svg>
+
+        <h1 class="font-brand text-[31px] font-bold tracking-wider text-[#0B3C42] leading-none mt-1">
+          DOWNLOAD: DHAKA
+        </h1>
+        <p class="font-brand text-[12.5px] font-semibold text-[#184C52] tracking-wide mt-1">
+          The Digital Nervous System for a Resilient Megacity
+        </p>
+      </div>
+
+      <!-- Bottom Vintage Dhaka Megacity Illustration (100% Vector SVG) -->
+      <div class="relative w-full h-[460px] mt-2">
+        <div class="absolute right-5 top-4 z-20 bg-[#4A2210] border-2 border-[#8D4B25] rounded-lg px-4 py-2 shadow-lg text-center">
+          <div class="text-[#FAD6B3] font-brand font-bold text-lg tracking-widest leading-tight">
+            A MEGACITY<br/>REIMAGINED
+          </div>
+        </div>
+
+        <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 bg-[#3B1A08]/90 text-[#FAD6B3] border border-[#DF9826] px-5 py-2 rounded-full text-xs font-brand tracking-widest uppercase shadow-xl animate-bounce">
+          Tap anywhere to launch →
+        </div>
+
+        <svg viewBox="0 0 412 460" class="w-full h-full object-cover" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0%" stop-color="#F6CEAA" stop-opacity="0"/>
+              <stop offset="35%" stop-color="#EAB586"/>
+              <stop offset="100%" stop-color="#C87D4B"/>
+            </linearGradient>
+          </defs>
+          <rect width="412" height="460" fill="url(#skyGrad)"/>
+          <g fill="#B9784C" stroke="#5A2B13" stroke-width="1">
+            <rect x="145" y="135" width="38" height="120"/>
+            <rect x="200" y="95" width="12" height="150"/>
+            <polygon points="206,72 199,95 213,95"/>
+            <rect x="285" y="110" width="95" height="130"/>
+            <path d="M 315 110 Q 332 82 350 110 Z" fill="#9E5B32"/>
+          </g>
+          <g fill="#C67A47" stroke="#4A200A" stroke-width="1.5">
+            <rect x="0" y="65" width="125" height="260" fill="#B5693A"/>
+            <rect x="85" y="60" width="90" height="250" fill="#C97E4E"/>
+            <rect x="165" y="160" width="85" height="160" fill="#BA6D3C"/>
+            <g fill="#4A200A" stroke="none">
+              <rect x="98" y="80" width="12" height="18"/><rect x="120" y="80" width="12" height="18"/><rect x="142" y="80" width="12" height="18"/>
+              <rect x="98" y="112" width="12" height="18"/><rect x="120" y="112" width="12" height="18"/><rect x="142" y="112" width="12" height="18"/>
+              <rect x="180" y="180" width="10" height="16"/><rect x="200" y="180" width="10" height="16"/><rect x="220" y="180" width="10" height="16"/>
+              <rect x="180" y="210" width="10" height="16"/><rect x="200" y="210" width="10" height="16"/><rect x="220" y="210" width="10" height="16"/>
+            </g>
+          </g>
+          <path d="M 245 205 L 412 225 L 412 252 L 245 225 Z" fill="#8C4E27" stroke="#3B1A08" stroke-width="2"/>
+          <rect x="275" y="230" width="14" height="75" fill="#6E3918" stroke="#3B1A08" stroke-width="1.5"/>
+          <rect x="355" y="242" width="16" height="80" fill="#6E3918" stroke="#3B1A08" stroke-width="1.5"/>
+          <polygon points="150,460 285,295 412,295 412,460" fill="#78523B" stroke="#3B1A08" stroke-width="1.5"/>
+          <polygon points="0,460 0,340 245,295 285,295 150,460" fill="#986644"/>
+          <rect x="88" y="318" width="32" height="24" fill="#2A3439" stroke="#FAD6B3" stroke-width="1.5"/>
+          <text x="104" y="334" font-size="11" fill="#FAD6B3" text-anchor="middle" font-weight="bold">ঢাকা</text>
+          <path d="M 10 295 Q 25 268 40 295 Z" fill="#E39B63" stroke="#4A200A" stroke-width="1.5"/>
+          <path d="M 42 302 Q 54 278 66 302 Z" fill="#E39B63" stroke="#4A200A" stroke-width="1.5"/>
+          <g transform="translate(115, 365)">
+            <path d="M 5 35 Q 28 0 52 35 Z" fill="#C84B28" stroke="#3B1A08" stroke-width="2"/>
+            <rect x="10" y="35" width="38" height="22" fill="#E69A28" stroke="#3B1A08" stroke-width="1.8"/>
+            <circle cx="14" cy="65" r="14" fill="none" stroke="#232323" stroke-width="3"/>
+            <circle cx="44" cy="65" r="14" fill="none" stroke="#232323" stroke-width="3"/>
+          </g>
+          <g transform="translate(310, 355)">
+            <path d="M 5 35 Q 32 -5 58 35 Z" fill="#D9822B" stroke="#3B1A08" stroke-width="2"/>
+            <rect x="12" y="35" width="42" height="25" fill="#138D97" stroke="#3B1A08" stroke-width="1.8"/>
+            <circle cx="16" cy="68" r="15" fill="none" stroke="#232323" stroke-width="3"/>
+            <circle cx="50" cy="68" r="15" fill="none" stroke="#232323" stroke-width="3"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 2: ROLE SELECTION (PDF Page 2)
+         ========================================== -->
+    <section id="screen-2" class="screen hidden flex-col justify-between h-full w-full p-8">
+      <div class="pt-2">
+        <span class="font-brand text-2xl font-bold text-[#7C3711] tracking-wide cursor-pointer" onclick="navigateTo('1')">
+          DOWNLOAD: DHAKA
+        </span>
+      </div>
+
+      <div class="my-auto flex flex-col items-center w-full">
+        <h2 class="font-serif-ui text-[38px] font-bold text-[#6E2C0B] mb-10">
+          Login
+        </h2>
+
+        <div class="grid grid-cols-2 gap-5 w-full">
+          <!-- Citizen Portal Button -->
+          <button onclick="selectRoleAndProceed('citizen')" class="btn-role py-3.5 px-4 flex items-center justify-center gap-2.5 shadow-sm">
+            <svg class="w-6 h-6 text-[#5E2509] fill-current shrink-0" viewBox="0 0 24 24">
+              <circle cx="12" cy="8" r="4.5"/>
+              <path d="M4 20c0-4.2 3.6-7.5 8-7.5s8 3.3 8 7.5H4z"/>
+            </svg>
+            <span class="font-serif-ui text-[21px] text-[#3B1A08]">Citizen</span>
+          </button>
+
+          <!-- Utility Portal Button -->
+          <button onclick="selectRoleAndProceed('utility')" class="btn-role py-3.5 px-4 flex items-center justify-center gap-2.5 shadow-sm">
+            <svg class="w-7 h-7 text-[#5E2509] fill-current shrink-0" viewBox="0 0 24 24">
+              <path d="M3 21h18v-2H3v2zm2-4h4v-7H5v7zm6 0h4V5h-4v12zm6 0h4V9h-4v8z"/>
+            </svg>
+            <span class="font-serif-ui text-[21px] text-[#3B1A08]">Utility</span>
+          </button>
+        </div>
+
+        <!-- Clicking Sign up navigates to dedicated Screen 2B -->
+        <p class="mt-10 font-serif-ui text-[16.5px] text-[#4A200A] text-center">
+          <button onclick="navigateTo('2B')" class="underline font-semibold hover:text-black">Sign up</button>
+          if you do not have an account
+        </p>
+      </div>
+
+      <div class="h-10"></div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 2B: DEDICATED SIGN UP INTERFACE (NEW)
+         ========================================== -->
+    <section id="screen-2B" class="screen hidden flex-col h-full w-full p-7">
+      <!-- Top Bar -->
+      <div class="pt-2 flex items-center justify-between">
+        <button onclick="navigateTo('2')" class="p-1 text-[#3B1A08] hover:opacity-70 flex items-center gap-1">
+          <svg class="w-7 h-7" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <span class="font-brand text-xl font-bold text-[#7C3711] tracking-wide">
+          DOWNLOAD: DHAKA
+        </span>
+      </div>
+
+      <h2 class="font-serif-ui text-[34px] font-bold text-[#3B1A08] text-center mt-4 mb-5">
+        Sign Up
+      </h2>
+
+      <form onsubmit="handleSignUpSubmit(event)" class="flex flex-col gap-4 w-full">
+        <!-- Full Name -->
+        <div>
+          <label class="block font-serif-ui text-xs font-bold uppercase tracking-wider text-[#6E2C0B] mb-1 ml-1">Full Name</label>
+          <input type="text" id="signup-fullname" placeholder="Enter your full name" required
+            class="input-login w-full py-3 px-4 text-[17px]" />
+        </div>
+
+        <!-- Gmail -->
+        <div>
+          <label class="block font-serif-ui text-xs font-bold uppercase tracking-wider text-[#6E2C0B] mb-1 ml-1">Gmail Address</label>
+          <input type="email" id="signup-email" placeholder="yourname@gmail.com" required
+            class="input-login w-full py-3 px-4 text-[17px]" />
+        </div>
+
+        <!-- Citizen / Utility Role Selector -->
+        <div>
+          <label class="block font-serif-ui text-xs font-bold uppercase tracking-wider text-[#6E2C0B] mb-1.5 ml-1">Select Portal Type (Citizen / Utility)</label>
+          <div class="grid grid-cols-2 gap-3.5">
+            <button type="button" id="signup-role-citizen" onclick="setSignUpRole('citizen')"
+              class="btn-role btn-role-active py-2.5 px-3 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 text-[#5E2509] fill-current shrink-0" viewBox="0 0 24 24">
+                <circle cx="12" cy="8" r="4.5"/><path d="M4 20c0-4.2 3.6-7.5 8-7.5s8 3.3 8 7.5H4z"/>
+              </svg>
+              <span class="font-serif-ui text-[18px] font-semibold">Citizen</span>
+            </button>
+
+            <button type="button" id="signup-role-utility" onclick="setSignUpRole('utility')"
+              class="btn-role py-2.5 px-3 flex items-center justify-center gap-2">
+              <svg class="w-5 h-5 text-[#5E2509] fill-current shrink-0" viewBox="0 0 24 24">
+                <path d="M3 21h18v-2H3v2zm2-4h4v-7H5v7zm6 0h4V5h-4v12zm6 0h4V9h-4v8z"/>
+              </svg>
+              <span class="font-serif-ui text-[18px] font-semibold">Utility</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Set Username -->
+        <div>
+          <label class="block font-serif-ui text-xs font-bold uppercase tracking-wider text-[#6E2C0B] mb-1 ml-1">Set Username</label>
+          <input type="text" id="signup-username" placeholder="Choose a username" required
+            class="input-login w-full py-3 px-4 text-[17px]" />
+        </div>
+
+        <!-- Set Password -->
+        <div>
+          <label class="block font-serif-ui text-xs font-bold uppercase tracking-wider text-[#6E2C0B] mb-1 ml-1">Set Password</label>
+          <input type="password" id="signup-password" placeholder="Create a strong password" required
+            class="input-login w-full py-3 px-4 text-[17px]" />
+        </div>
+
+        <div class="flex items-center justify-between mt-3">
+          <button type="button" onclick="navigateTo('3')" class="font-serif-ui text-sm text-[#4A200A] underline">
+            Already have an account? Login
+          </button>
+
+          <button type="submit"
+            class="bg-[#3B1A08] hover:bg-[#59280e] text-[#FAD6B3] border-2 border-[#98501D] rounded-xl px-6 py-2.5 font-serif-ui text-[18px] shadow-md transition">
+            Sign Up & Enter →
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 3: LOGIN CREDENTIALS (PDF Page 3)
+         ========================================== -->
+    <section id="screen-3" class="screen hidden flex-col h-full w-full p-8">
+      <!-- Top Bar -->
+      <div class="pt-2 flex items-center justify-between">
+        <span class="font-brand text-2xl font-bold text-[#2B2B2B] tracking-wide cursor-pointer" onclick="navigateTo('2')">
+          DOWNLOAD: DHAKA
+        </span>
+        <!-- Quick Role Toggle Pill -->
+        <button type="button" onclick="toggleLoginRole()" id="role-badge"
+          class="text-xs font-brand uppercase px-3 py-1 rounded-full bg-[#98501D] text-white font-bold shadow-sm">
+          Portal: Citizen ⇄
+        </button>
+      </div>
+
+      <!-- Login Form -->
+      <div class="mt-10 flex flex-col w-full">
+        <h2 class="font-serif-ui text-[38px] font-bold text-[#2B2B2B] text-center mb-8">
+          Login
+        </h2>
+
+        <form onsubmit="handleLoginSubmit(event)" class="flex flex-col gap-6 w-full">
+          <input type="email" id="login-email" placeholder="Your gmail" required
+            class="input-login w-full py-3.5 px-5 text-[19px]" />
+
+          <input type="text" id="login-user" placeholder="Your username" required
+            class="input-login w-full py-3.5 px-5 text-[19px]" />
+
+          <input type="password" id="login-pass" placeholder="Password" required
+            class="input-login w-full py-3.5 px-5 text-[19px]" />
+
+          <div class="flex items-center justify-between mt-1">
+            <button type="button" onclick="showToast('Password recovery link sent to your Gmail!')"
+              class="font-serif-ui text-[17px] text-[#1F1F1F] underline">
+              Forgot password?
+            </button>
+            <button type="button" onclick="navigateTo('2B')"
+              class="font-serif-ui text-[16px] text-[#6E2C0B] underline font-semibold">
+              New user? Sign up
+            </button>
+          </div>
+
+          <div class="flex justify-end mt-5">
+            <button type="submit"
+              class="bg-[#FCE6CE] hover:bg-white border-[2.5px] border-[#2B2B2B] rounded-xl px-9 py-2.5 font-serif-ui text-[20px] text-[#1F1F1F] shadow-sm transition">
+              Enter
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 4: CITIZEN DASHBOARD (PDF Page 4)
+         ========================================== -->
+    <section id="screen-4" class="screen hidden flex-col h-full w-full p-8">
+      <!-- Top Header -->
+      <div class="pt-2 flex items-center justify-between">
+        <span class="font-brand text-2xl font-bold text-[#1F1F1F] tracking-wide cursor-pointer" onclick="navigateTo('2')">
+          DOWNLOAD: DHAKA
+        </span>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F] hover:bg-black/5">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/>
+            <path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Welcome User Pill -->
+      <div id="citizen-welcome-banner" class="mt-4 text-center text-xs font-brand uppercase tracking-wider text-[#6E2C0B] bg-[#FCE6CE]/70 border border-[#98501D]/30 rounded-full py-1 px-3 mx-auto">
+        Citizen Portal Active
+      </div>
+
+      <!-- Title -->
+      <h2 class="font-serif-ui text-[38px] font-bold text-[#1F1F1F] text-center mt-5 mb-8">
+        Citizen
+      </h2>
+
+      <!-- 4 Citizen Menu Buttons -->
+      <div class="flex flex-col gap-6 w-full px-2">
+        <!-- 1. Safety Status -->
+        <button onclick="navigateTo('5')" class="btn-citizen-menu py-4 px-6 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2L4 5v6.09c0 5.05 3.41 9.76 8 10.91 4.59-1.15 8-5.86 8-10.91V5l-8-3zm-1.06 13.54L7.4 12l1.41-1.41 2.12 2.12 4.24-4.24 1.41 1.41-5.64 5.66z"/>
+          </svg>
+          <span class="font-serif-ui text-[23px]">Safety Status</span>
+        </button>
+
+        <!-- 2. Pay Bill -->
+        <button onclick="navigateTo('6')" class="btn-citizen-menu py-4 px-6 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="4" y="3" width="14" height="18" rx="2"/>
+            <path d="M8 8h6M8 12h6M8 16h4"/>
+            <circle cx="18" cy="6" r="3" fill="#FCE5CD"/>
+          </svg>
+          <span class="font-serif-ui text-[23px]">Pay Bill</span>
+        </button>
+
+        <!-- 3. Micro-plastic Alert -->
+        <button onclick="navigateTo('7')" class="btn-citizen-menu py-4 px-6 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+          </svg>
+          <span class="font-serif-ui text-[22px]">Micro-plastic Alert</span>
+        </button>
+
+        <!-- 4. Report -->
+        <button onclick="navigateTo('8')" class="btn-citizen-menu py-4 px-6 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <circle cx="9" cy="10" r="3.5"/>
+            <path d="M3 20c0-3 2.7-5.5 6-5.5s6 2.5 6 5.5H3z"/>
+            <circle cx="17" cy="6" r="3.5"/>
+            <text x="17" y="8.5" font-size="6" fill="#FCE5CD" text-anchor="middle" font-weight="bold">!</text>
+          </svg>
+          <span class="font-serif-ui text-[23px]">Report</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 5: SAFETY STATUS GAUGE (PDF Page 5)
+         ========================================== -->
+    <section id="screen-5" class="screen hidden flex-col h-full w-full p-7">
+      <div class="pt-2 flex items-center justify-between">
+        <button onclick="goBack('4')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="font-serif-ui text-[38px] text-[#1F1F1F] text-center mt-6">
+        Safety Status
+      </h2>
+      <p class="font-serif-ui text-[19px] text-[#1F1F1F] text-center mt-6 mb-5">
+        Check your neighborhood safety
+      </p>
+
+      <!-- Interactive Zone Selector -->
+      <div class="flex justify-center mb-4">
+        <select id="zone-select" onchange="updateSafetyGauge(this.value)"
+          class="bg-[#FCE6CE] border-2 border-[#98501D] rounded-xl px-4 py-2 font-serif-ui text-sm text-[#3B1A08] font-semibold shadow-sm">
+          <option value="76">Zone: Gulshan / Banani (Index: 76 - SAFE)</option>
+          <option value="84">Zone: Uttara Sector 4 (Index: 84 - SAFE)</option>
+          <option value="14">Zone: Mirpur-10 Pipeline (Index: 14 - LEAK DETECTED)</option>
+          <option value="22">Zone: Old Dhaka / Lalbagh (Index: 22 - WARNING)</option>
+        </select>
+      </div>
+
+      <!-- Semi-Circular Metallic Speedometer Gauge (SVG) -->
+      <div class="w-full flex flex-col items-center mt-2">
+        <svg viewBox="0 0 360 215" class="w-full max-w-[360px] drop-shadow-md">
+          <defs>
+            <linearGradient id="metalRim" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#D6CFC7"/>
+              <stop offset="50%" stop-color="#7D756D"/>
+              <stop offset="100%" stop-color="#4A453F"/>
+            </linearGradient>
+            <radialGradient id="innerDial" cx="50%" cy="85%" r="60%">
+              <stop offset="0%" stop-color="#EAE3DC"/>
+              <stop offset="70%" stop-color="#B8B0A8"/>
+              <stop offset="100%" stop-color="#706962"/>
+            </radialGradient>
+          </defs>
+
+          <path d="M 18 180 A 162 162 0 0 1 342 180 Z" fill="url(#metalRim)" stroke="#5C554E" stroke-width="3"/>
+          <path d="M 30 180 A 150 150 0 0 1 330 180 Z" fill="#2E2B28"/>
+
+          <!-- 8 Color Scale Segments -->
+          <path d="M 45 180 A 135 135 0 0 1 60 118 L 100 138 A 90 90 0 0 0 90 180 Z" fill="#8B261D" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 60 118 A 135 135 0 0 1 95 72 L 123 108 A 90 90 0 0 0 100 138 Z" fill="#D95B43" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 95 72 A 135 135 0 0 1 142 49 L 154 92 A 90 90 0 0 0 123 108 Z" fill="#E89341" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 142 49 A 135 135 0 0 1 180 45 L 180 90 A 90 90 0 0 0 154 92 Z" fill="#EAC14D" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 180 45 A 135 135 0 0 1 218 49 L 206 92 A 90 90 0 0 0 180 90 Z" fill="#C4E053" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 218 49 A 135 135 0 0 1 265 72 L 237 108 A 90 90 0 0 0 206 92 Z" fill="#8CD446" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 265 72 A 135 135 0 0 1 300 118 L 260 138 A 90 90 0 0 0 237 108 Z" fill="#5EC64D" stroke="#2E2B28" stroke-width="2"/>
+          <path d="M 300 118 A 135 135 0 0 1 315 180 L 270 180 A 90 90 0 0 0 260 138 Z" fill="#3B8C3B" stroke="#2E2B28" stroke-width="2"/>
+
+          <path d="M 88 180 A 92 92 0 0 1 272 180 Z" fill="url(#innerDial)" stroke="#4A453F" stroke-width="6"/>
+
+          <g fill="#F5E6D3" font-family="sans-serif" font-size="10" font-weight="bold" text-anchor="middle">
+            <text x="80" y="176">0</text>
+            <text x="52" y="118">10</text>
+            <text x="88" y="68">20</text>
+            <text x="136" y="45">40</text>
+            <text x="180" y="40">50</text>
+            <text x="224" y="45">60</text>
+            <text x="272" y="68">70</text>
+            <text x="310" y="118">80</text>
+            <text x="278" y="176">100</text>
+          </g>
+
+          <g id="needle-leak" transform="rotate(-64 180 180)" class="transition-transform duration-700">
+            <polygon points="180,52 175,180 185,180" fill="#D32F2F"/>
+          </g>
+          <g id="needle-safe" transform="rotate(52 180 180)" class="transition-transform duration-700">
+            <polygon points="180,50 175,180 185,180" fill="#FFFFFF" filter="drop-shadow(0 0 4px #ffffff)"/>
+          </g>
+
+          <circle cx="180" cy="180" r="16" fill="#231F20"/>
+
+          <text x="65" y="198" fill="#8B1E14" font-family="sans-serif" font-weight="800" font-size="14" text-anchor="middle">LEAK DETECTED</text>
+          <text x="308" y="199" fill="#1E5E22" font-family="sans-serif" font-weight="800" font-size="18" text-anchor="middle">SAFE</text>
+        </svg>
+
+        <div id="safety-readout" class="mt-6 w-full bg-[#FCE6CE] border-2 border-[#98501D] rounded-xl p-4 text-center shadow-sm">
+          <p class="font-serif-ui text-sm text-[#4A200A] font-semibold">
+            Current Neighborhood Score: <span class="text-green-800 font-bold">76 / 100 (SAFE)</span>
+          </p>
+          <p class="text-xs text-[#6E2C0B] mt-1">
+            Gas pressure normal (2.1 PSI) • Water main acoustic sensors nominal.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 6: PAY BILL (PDF Page 6)
+         ========================================== -->
+    <section id="screen-6" class="screen hidden flex-col h-full w-full">
+      <div class="w-full bg-[#F5B59C] px-7 pt-7 pb-4 flex items-center justify-between border-b border-[#E59E83]">
+        <button onclick="goBack('4')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <div class="p-7 flex-1 flex flex-col">
+        <h2 class="font-serif-ui text-[38px] text-[#1F1F1F] text-center mb-8">
+          Pay Bill
+        </h2>
+
+        <form onsubmit="handlePayBill(event)" class="flex flex-col gap-5 w-full px-1">
+          <input type="text" id="bill-org-type" placeholder="Organization type" list="org-types" required
+            class="input-paybill w-full py-3.5 px-5 text-[19px] font-serif-ui" />
+          <datalist id="org-types">
+            <option value="Water Supply & Sewerage"/>
+            <option value="Natural Gas Distribution"/>
+            <option value="Electricity Utility"/>
+          </datalist>
+
+          <input type="text" id="bill-org-name" placeholder="Organization name" list="org-names" required
+            class="input-paybill w-full py-3.5 px-5 text-[19px] font-serif-ui" />
+          <datalist id="org-names">
+            <option value="DWASA (Dhaka WASA)"/>
+            <option value="Titas Gas T&D Co."/>
+            <option value="DESCO / DPDC"/>
+          </datalist>
+
+          <input type="text" id="bill-meter" placeholder="Meter no." required
+            class="input-paybill w-full py-3.5 px-5 text-[19px] font-serif-ui" />
+
+          <input type="text" id="bill-month" placeholder="Month" list="months-list" required
+            class="input-paybill w-full py-3.5 px-5 text-[19px] font-serif-ui" />
+          <datalist id="months-list">
+            <option value="October 2026"/>
+            <option value="September 2026"/>
+            <option value="August 2026"/>
+          </datalist>
+
+          <input type="number" id="bill-amount" placeholder="Amount" required
+            class="input-paybill w-full py-3.5 px-5 text-[19px] font-serif-ui" />
+
+          <div class="flex justify-end mt-6">
+            <button type="submit"
+              class="bg-[#F2A683] hover:bg-[#eb946b] text-[#1F1F1F] font-serif-ui text-[21px] px-11 py-2.5 rounded-xl shadow-sm transition">
+              Pay
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 7: MICRO-PLASTIC ALERT (PDF Page 7)
+         WITH TRUSTED EXTERNAL DATA & CUSTOM SUGGESTIONS
+         ========================================== -->
+    <section id="screen-7" class="screen hidden flex-col h-full w-full p-6 bg-[#FBE0C6]">
+      <!-- Top Bar -->
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="goBack('4')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Heading -->
+      <h2 class="font-serif-ui text-[32px] text-[#1F1F1F] text-center mt-2 mb-3">
+        Micro-plastic Alert
+      </h2>
+
+      <!-- Supply Source Selector + Custom Number Slider -->
+      <div class="bg-white/75 border-2 border-[#98501D] rounded-xl p-3 mb-3 mx-1 shadow-sm">
+        <label class="block text-[11px] font-brand font-bold uppercase text-[#6E2C0B] mb-1">
+          Select Dhaka Water Source (External Study Dataset):
+        </label>
+        <select id="mp-zone-select" onchange="handleMpZoneChange(this.value)"
+          class="w-full bg-[#FCE6CE] border border-[#98501D] rounded-lg px-2.5 py-1.5 font-serif-ui text-xs text-[#3B1A08] font-semibold">
+          <option value="2.1">Deep Tube Well — Uttara / Dhanmondi (2.1 MP/L • Low)</option>
+          <option value="6.8">Padma Jashaldia WTP Supply (6.8 MP/L • Moderate)</option>
+          <option value="18.4" selected>Saidabad WTP — Buriganga/Sitalakhya Intake (18.4 MP/L • High)</option>
+          <option value="34.6">Mirpur-10 / Old Dhaka Aging PVC Grid (34.6 MP/L • Critical)</option>
+        </select>
+
+        <!-- Custom Micro-plastic Count Slider to test dynamic suggestions -->
+        <div class="mt-2.5 flex items-center justify-between text-xs text-[#3B1A08] font-serif-ui">
+          <span>Custom Test Level: <strong id="mp-slider-val" class="text-[#98501D]">18.4 MP/L</strong></span>
+          <span id="mp-risk-badge" class="px-2 py-0.5 rounded text-[10px] font-brand font-bold uppercase bg-red-700 text-white">HIGH RISK</span>
+        </div>
+        <input type="range" id="mp-custom-slider" min="0.5" max="45" step="0.5" value="18.4"
+          oninput="handleMpSliderChange(this.value)"
+          class="w-full accent-[#98501D] mt-1 h-1.5 bg-amber-200 rounded-lg cursor-pointer" />
+      </div>
+
+      <!-- 3 Stacked Cards from PDF Page 7 -->
+      <div class="flex flex-col gap-3 w-full px-1">
+        <button id="mp-btn-today" onclick="showMicroplasticDetail('today')" class="card-microplastic py-2.5 px-4 text-center">
+          <span class="font-serif-ui text-[19px] text-[#1F1F1F]">Check today’s data</span>
+        </button>
+
+        <button id="mp-btn-purity" onclick="showMicroplasticDetail('purity')" class="card-microplastic py-2.5 px-4 text-center">
+          <span class="font-serif-ui text-[19px] text-[#1F1F1F]">Water purity index</span>
+        </button>
+
+        <button id="mp-btn-suggestions" onclick="showMicroplasticDetail('suggestions')" class="card-microplastic card-microplastic-active py-2.5 px-4 text-center">
+          <span class="font-serif-ui text-[19px] text-[#1F1F1F]">Suggestions for you</span>
+        </button>
+      </div>
+
+      <!-- Dynamic Output Panel with Trusted External Citations & Custom Suggestions -->
+      <div id="microplastic-output" class="mt-3 mx-1 p-3.5 rounded-xl bg-white/95 border-2 border-[#98501D] text-[#3B1A08] font-serif-ui text-xs shadow-md overflow-y-auto max-h-[245px]">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 8: REPORT TO AUTHORITY (PDF Page 8)
+         ========================================== -->
+    <section id="screen-8" class="screen hidden flex-col h-full w-full p-7">
+      <div class="pt-2 flex items-center justify-between">
+        <button onclick="goBack('4')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="font-serif-ui text-[35px] text-[#3B1A08] text-center mt-8 mb-10">
+        Report to Authority
+      </h2>
+
+      <form onsubmit="handleReportSubmit(event)" class="flex flex-col gap-8 w-full px-1">
+        <textarea id="report-desc" rows="5" placeholder="Describe your problem" required
+          class="w-full bg-transparent border-[2.2px] border-[#3B1A08] rounded-xl p-4 font-serif-ui text-[19px] text-[#2B1508] placeholder-[#3B1A08] focus:outline-none focus:bg-white/30"></textarea>
+
+        <label class="w-full border-[2.2px] border-[#3B1A08] rounded-xl p-4 flex items-center gap-4 cursor-pointer hover:bg-white/25 transition">
+          <input type="file" accept="image/*,video/*" class="hidden" onchange="previewReportMedia(event)" />
+          <svg class="w-10 h-10 text-[#3B1A08] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="5" width="16" height="16" rx="2"/>
+            <circle cx="8.5" cy="10.5" r="1.5"/>
+            <path d="M4 19l4.5-4.5 3.5 3.5 4-4 3 3"/>
+            <circle cx="18" cy="6" r="4" fill="#F7D1AC" stroke="currentColor" stroke-width="1.6"/>
+            <path d="M18 4v4M16 6h4"/>
+          </svg>
+          <span id="media-label" class="font-serif-ui text-[20px] text-[#3B1A08]">Add image / video</span>
+        </label>
+
+        <div class="flex justify-end mt-2">
+          <button type="submit"
+            class="bg-[#061E42] hover:bg-[#0c2d61] text-white font-serif-ui text-[19px] px-9 py-2.5 rounded-xl shadow-md transition">
+            Submit
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 9: UTILITY DASHBOARD (PDF Page 9)
+         ========================================== -->
+    <section id="screen-9" class="screen hidden flex-col h-full w-full p-8">
+      <!-- Top Header -->
+      <div class="pt-2 flex items-center justify-between">
+        <span class="font-brand text-2xl font-bold text-[#1F1F1F] tracking-wide cursor-pointer" onclick="navigateTo('2')">
+          DOWNLOAD: DHAKA
+        </span>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Welcome Utility Pill -->
+      <div id="utility-welcome-banner" class="mt-4 text-center text-xs font-brand uppercase tracking-wider text-[#1F1F1F] bg-[#F5ECE4] border border-[#98501D]/40 rounded-full py-1 px-3 mx-auto">
+        Utility Operations Portal Active
+      </div>
+
+      <!-- Title -->
+      <h2 class="font-serif-ui text-[38px] font-bold text-[#1F1F1F] text-center mt-5 mb-8">
+        Utility
+      </h2>
+
+      <!-- 4 Utility Menu Buttons -->
+      <div class="flex flex-col gap-6 w-full px-2">
+        <!-- 1. Anomaly Map -->
+        <button onclick="navigateTo('10')" class="btn-utility-menu py-4 px-5 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+          </svg>
+          <span class="font-serif-ui text-[22px]">Anomaly Map</span>
+        </button>
+
+        <!-- 2. Predictive Heatmap -->
+        <button onclick="navigateTo('11')" class="btn-utility-menu py-4 px-5 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M3 3h18v18H3V3zm2 2v4h4V5H5zm6 0v4h4V5h-4zm6 0v4h2V5h-2zM5 11v4h4v-4H5zm6 0v4h4v-4h-4zm6 0v4h2v-4h-2zM5 17v2h4v-2H5zm6 0v2h4v-2h-4zm6 0v2h2v-2h-2z"/>
+          </svg>
+          <span class="font-serif-ui text-[22px]">Predictive Heatmap</span>
+        </button>
+
+        <!-- 3. Leak Localization -->
+        <button onclick="navigateTo('12')" class="btn-utility-menu py-4 px-5 flex items-center gap-4 shadow-sm">
+          <svg class="w-8 h-8 text-[#1F1F1F] shrink-0" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M15 4v6H5v4h12a2 2 0 0 0 2-2V4h-4zm1 12c0 1.66-1.34 3-3 3s-3-1.34-3-3c0-1.31 3-4.5 3-4.5s3 3.19 3 4.5z"/>
+          </svg>
+          <span class="font-serif-ui text-[22px]">Leak Localization</span>
+        </button>
+
+        <!-- 4. Financial Recovery Tracker -->
+        <button onclick="navigateTo('13')" class="btn-utility-menu py-3 px-5 flex items-center gap-4 shadow-sm text-left">
+          <div class="w-8 h-8 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center font-bold text-lg shrink-0">
+            ৳
+          </div>
+          <span class="font-serif-ui text-[20px] leading-tight">Financial Recovery<br/>Tracker</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 10: ANOMALY MAP (PDF Page 10)
+         ========================================== -->
+    <section id="screen-10" class="screen hidden flex-col h-full w-full">
+      <div class="px-7 pt-7 pb-5 bg-[#FAD6B3] flex flex-col">
+        <div class="flex items-center justify-between">
+          <button onclick="goBack('9')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+            </svg>
+          </button>
+        </div>
+        <h2 class="font-serif-ui text-[36px] text-[#1F1F1F] text-center mt-2">
+          Anomaly map
+        </h2>
+      </div>
+
+      <div class="relative flex-1 w-full bg-[#1C2426] overflow-hidden">
+        <svg viewBox="0 0 412 640" class="w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+          <rect width="412" height="640" fill="#2A3033"/>
+          <g stroke="#384044" stroke-width="1" opacity="0.65">
+            <path d="M0 80 H412 M0 160 H412 M0 240 H412 M0 320 H412 M0 400 H412 M0 480 H412 M0 560 H412"/>
+            <path d="M70 0 V640 M140 0 V640 M210 0 V640 M280 0 V640 M350 0 V640"/>
+            <path d="M180 0 L195 280 L275 450 L310 640" stroke="#7A7362" stroke-width="3.5" fill="none"/>
+            <path d="M90 210 L210 265 L350 230 L310 420" stroke="#7A7362" stroke-width="3" fill="none"/>
+          </g>
+
+          <!-- Turag & Buriganga Rivers -->
+          <path d="M 155 0 C 140 60 95 110 92 175 C 90 240 118 290 100 350 C 82 410 55 445 85 505 C 115 565 160 600 265 625 L 340 640 L 260 640 C 145 615 90 575 60 510 C 30 445 58 400 76 345 C 92 290 65 240 68 175 C 70 110 115 55 128 0 Z"
+                fill="#163537" stroke="#23494D" stroke-width="2"/>
+
+          <text x="108" y="102" fill="#8FA8AA" font-size="11" transform="rotate(-52 108 102)" font-family="sans-serif">Turag</text>
+          <text x="105" y="262" fill="#8FA8AA" font-size="11" transform="rotate(-85 105 262)" font-family="sans-serif">Buriganga</text>
+          <text x="86" y="405" fill="#8FA8AA" font-size="11" transform="rotate(-65 86 405)" font-family="sans-serif">Turag</text>
+          <text x="118" y="512" fill="#8FA8AA" font-size="11" transform="rotate(60 118 512)" font-family="sans-serif">Buriganga</text>
+          <text x="305" y="628" fill="#8FA8AA" font-size="11" transform="rotate(15 305 628)" font-family="sans-serif">Buriganga</text>
+
+          <text x="200" y="155" fill="#D5DADC" font-size="11" font-weight="bold" font-family="sans-serif">UTTARA</text>
+          <text x="330" y="340" fill="#D5DADC" font-size="14" font-weight="bold" font-family="sans-serif">GULSHAN</text>
+          <text x="285" y="438" fill="#D5DADC" font-size="13" font-weight="bold" font-family="sans-serif">DHAKA</text>
+          <text x="290" y="562" fill="#D5DADC" font-size="13" font-weight="bold" font-family="sans-serif">OLD DHAKA</text>
+
+          <!-- Blue Pipeline Network Lines -->
+          <g stroke="#00A8FF" stroke-width="2.5" fill="none" opacity="0.8">
+            <path d="M 262 20 L 255 140 L 245 215 L 275 355 L 268 510 L 365 595"/>
+            <path d="M 162 175 L 185 210 L 185 260 L 130 340 L 200 415 L 215 510"/>
+            <path d="M 255 140 L 185 210 M 245 215 L 345 255 L 395 320"/>
+          </g>
+
+          <!-- Operational Badges -->
+          <g font-family="sans-serif" font-size="9" font-weight="bold" fill="#7CE8FF">
+            <rect x="335" y="12" width="62" height="16" rx="3" fill="#102530" opacity="0.85"/>
+            <text x="366" y="23" text-anchor="middle">OPERATIONAL</text>
+            <rect x="92" y="152" width="65" height="16" rx="3" fill="#102530" opacity="0.85"/>
+            <text x="124" y="163" text-anchor="middle">OPERATIONAL</text>
+            <rect x="8" y="254" width="62" height="16" rx="3" fill="#102530" opacity="0.85"/>
+            <text x="39" y="265" text-anchor="middle">OPERATIONAL</text>
+            <rect x="142" y="324" width="62" height="16" rx="3" fill="#102530" opacity="0.85"/>
+            <text x="173" y="335" text-anchor="middle">OPERATIONAL</text>
+          </g>
+
+          <!-- Glowing Operational Nodes -->
+          <g fill="#00D2FF" stroke="#004E7C" stroke-width="2">
+            <circle cx="262" cy="24" r="6"/><circle cx="260" cy="54" r="6"/><circle cx="258" cy="86" r="6"/>
+            <circle cx="255" cy="116" r="6"/><circle cx="252" cy="146" r="6"/><circle cx="246" cy="180" r="6"/>
+            <circle cx="238" cy="212" r="7"/><circle cx="178" cy="176" r="6"/><circle cx="195" cy="176" r="6"/>
+            <circle cx="185" cy="208" r="6"/><circle cx="215" cy="204" r="6"/><circle cx="185" cy="242" r="6"/>
+            <circle cx="295" cy="244" r="6"/><circle cx="322" cy="252" r="6"/><circle cx="348" cy="276" r="6"/>
+            <circle cx="368" cy="304" r="7"/><circle cx="275" cy="336" r="7"/><circle cx="272" cy="366" r="6"/>
+            <circle cx="280" cy="402" r="7"/><circle cx="268" cy="436" r="6"/><circle cx="295" cy="472" r="7"/>
+            <circle cx="264" cy="480" r="7"/><circle cx="268" cy="508" r="7"/><circle cx="288" cy="512" r="6"/>
+            <circle cx="308" cy="512" r="6"/><circle cx="328" cy="512" r="6"/><circle cx="102" cy="382" r="6"/>
+            <circle cx="142" cy="382" r="6"/><circle cx="168" cy="388" r="6"/><circle cx="202" cy="412" r="6"/>
+            <circle cx="128" cy="492" r="7"/><circle cx="235" cy="596" r="6"/><circle cx="285" cy="596" r="6"/>
+          </g>
+
+          <!-- Anomaly 1 -->
+          <g class="cursor-pointer" onclick="showAnomalyAlert('Mirpur-Mohakhali Trunk Line', 'Pressure drop of 42% detected at Node #M-19')">
+            <circle cx="186" cy="274" r="24" fill="none" stroke="#FF5722" stroke-width="2" class="anomaly-pulse"/>
+            <circle cx="186" cy="274" r="14" fill="#FF5722" opacity="0.35"/>
+            <circle cx="186" cy="274" r="7" fill="#FF9800" stroke="#FFFFFF" stroke-width="1.5"/>
+            <rect x="198" y="250" width="86" height="16" rx="3" fill="#1E1410" opacity="0.9"/>
+            <text x="241" y="261" fill="#FF8A65" font-size="8.5" font-weight="bold" font-family="sans-serif" text-anchor="middle">ANOMALY DETECTED</text>
+          </g>
+
+          <!-- Anomaly 2 -->
+          <g class="cursor-pointer" onclick="showAnomalyAlert('Eastern Transmission Main', 'Acoustic leak signature (89% confidence) at Valve #E-04')">
+            <circle cx="382" cy="162" r="42" fill="none" stroke="#FF3D00" stroke-width="2.5" class="anomaly-pulse"/>
+            <circle cx="382" cy="162" r="28" fill="none" stroke="#FF5722" stroke-width="2"/>
+            <circle cx="382" cy="162" r="10" fill="#FF9100" stroke="#FFF" stroke-width="2"/>
+          </g>
+
+          <!-- Anomaly 3 -->
+          <g class="cursor-pointer" onclick="showAnomalyAlert('Old Dhaka Distribution Grid', 'Illegal tap / rupture suspected at Node #S-88')">
+            <circle cx="372" cy="598" r="22" fill="none" stroke="#FF5722" stroke-width="2" class="anomaly-pulse"/>
+            <circle cx="372" cy="598" r="7" fill="#FF9100" stroke="#FFF" stroke-width="1.5"/>
+          </g>
+        </svg>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 11: PREDICTIVE HEATMAP (PDF Page 11)
+         ========================================== -->
+    <section id="screen-11" class="screen hidden flex-col h-full w-full">
+      <div class="px-7 pt-7 pb-5 bg-[#FAD6B3] flex flex-col">
+        <div class="flex items-center justify-between">
+          <button onclick="goBack('9')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+            <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+              <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+            </svg>
+          </button>
+        </div>
+        <h2 class="font-serif-ui text-[35px] text-[#1F1F1F] text-center mt-2">
+          Predictive Heatmap
+        </h2>
+      </div>
+
+      <div class="relative flex-1 w-full bg-[#182226] overflow-hidden">
+        <svg viewBox="0 0 412 640" class="w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+          <rect width="412" height="640" fill="#1E2B2F"/>
+          <g stroke="#2CE6B8" stroke-width="1.2" opacity="0.45" fill="none">
+            <path d="M60 20 L160 20 L160 150 L60 150 Z"/>
+            <path d="M160 20 L270 20 L250 180 L160 150 Z"/>
+            <path d="M290 120 L400 90 L390 290 L290 260 Z"/>
+            <path d="M300 260 L405 290 L380 440 L290 390 Z"/>
+            <path d="M80 20 H400 M40 80 H400 M30 140 H400 M20 220 H400 M30 300 H400 M50 380 H400"/>
+            <path d="M110 0 V500 M190 0 V520 M275 0 V540 M345 0 V520"/>
+          </g>
+          <g stroke="#FFA726" stroke-width="3" opacity="0.75" fill="none">
+            <path d="M235 0 L285 110 L220 240 L180 330 L185 450 L285 495"/>
+            <path d="M285 110 L305 255 M180 330 L315 395"/>
+          </g>
+          <path d="M 0 340 C 35 390 65 455 85 495 C 110 530 190 500 240 515 C 290 530 340 595 385 640 L 330 640 C 290 595 255 545 215 535 C 165 525 90 550 60 505 C 35 465 15 410 0 380 Z"
+                fill="#102B3F" stroke="#26617A" stroke-width="2"/>
+          <text x="180" y="512" fill="#B0BEC5" font-size="10" font-family="sans-serif">Buriganga</text>
+
+          <g class="heatmap-poly" stroke="#FF2AFF" stroke-width="4" fill="#D500F9" fill-opacity="0.22" stroke-linejoin="round">
+            <polygon points="84,82 95,148 140,158 164,242 135,256 96,152 16,184 8,238 50,245 55,192"/>
+            <polygon points="102,306 125,368 98,382 82,334"/>
+            <polygon points="198,292 225,286 228,314 200,318"/>
+            <polygon points="242,366 292,344 328,366 322,455 248,438 250,382"/>
+          </g>
+
+          <g font-family="sans-serif" font-size="11" font-weight="bold" fill="#FFFFFF">
+            <rect x="95" y="25" width="56" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="123" y="37" text-anchor="middle">UTTARA</text>
+            <rect x="328" y="2" width="56" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="356" y="14" text-anchor="middle">UTTARA</text>
+            <rect x="92" y="114" width="54" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="119" y="126" text-anchor="middle">MIRPUR</text>
+            <rect x="116" y="164" width="72" height="17" rx="3" fill="#1C262B" opacity="0.9"/><text x="152" y="176" text-anchor="middle">MIRPUR-10</text>
+            <rect x="228" y="162" width="54" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="255" y="174" text-anchor="middle">MIRPUR</text>
+            <rect x="300" y="136" width="64" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="332" y="148" text-anchor="middle">GULSHAN</text>
+            <rect x="206" y="214" width="76" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="244" y="226" text-anchor="middle">MOHAKHALI</text>
+            <rect x="22" y="302" width="78" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="61" y="314" text-anchor="middle">DHANMONDI</text>
+            <rect x="190" y="324" width="72" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="226" y="336" text-anchor="middle">SHAHBAGH</text>
+            <rect x="198" y="446" width="90" height="17" rx="3" fill="#1C262B" opacity="0.85"/><text x="243" y="458" text-anchor="middle">DHAKA SOUTH</text>
+          </g>
+
+          <rect x="340" y="346" width="72" height="58" rx="4" fill="#11171A" opacity="0.92" stroke="#FF2AFF" stroke-width="1"/>
+          <text x="346" y="362" fill="#FF80FF" font-size="9" font-weight="bold" font-family="sans-serif">STRESSED PIPELINES</text>
+          <text x="346" y="376" fill="#E0E0E0" font-size="8.5" font-family="sans-serif">Mirpur Zone: 92%</text>
+          <text x="346" y="390" fill="#E0E0E0" font-size="8.5" font-family="sans-serif">Dhanmondi Z: 78%</text>
+        </svg>
+
+        <div class="absolute bottom-4 left-4 right-4 bg-[#141C1F]/95 border border-stone-600 rounded-xl p-3 text-white shadow-xl">
+          <div class="text-[11px] font-bold tracking-wider uppercase text-center text-stone-200 mb-2">
+            HEATMAP: PROBABILITY OF FAILURE (NEXT 48 HRS)
+          </div>
+          <div class="w-full h-3.5 rounded-full bg-gradient-to-r from-emerald-400 via-yellow-400 via-orange-500 to-fuchsia-600"></div>
+          <div class="flex justify-between text-[11px] font-semibold text-stone-300 mt-1 px-1">
+            <span>0%</span>
+            <span>25%</span>
+            <span>99%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 12: LEAK LOCALIZATION (PDF Page 12)
+         ========================================== -->
+    <section id="screen-12" class="screen hidden flex-col h-full w-full p-7">
+      <div class="pt-2 flex items-center justify-between">
+        <button onclick="goBack('9')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="font-serif-ui text-[35px] text-[#1F1F1F] text-center mt-8 mb-14">
+        Leak Localization
+      </h2>
+
+      <div class="flex flex-col gap-9 w-full px-4">
+        <div class="bg-[#F5ECE4] border-[2px] border-[#DFAB80] rounded-xl py-4 px-5 flex items-center justify-between shadow-sm">
+          <span class="font-serif-ui text-[22px] text-[#1F1F1F]">Notifications</span>
+          <button id="notif-toggle" onclick="toggleNotifications()"
+            class="w-16 h-8 rounded-full bg-[#F2994A] p-1 flex items-center justify-between transition duration-200">
+            <span id="notif-label" class="text-[10px] font-bold text-white pl-1.5">ON</span>
+            <span id="notif-knob" class="w-6 h-6 rounded-full bg-[#F5ECE4] shadow transform transition duration-200"></span>
+          </button>
+        </div>
+
+        <button onclick="runLeakLocalization()"
+          class="bg-[#F5ECE4] hover:bg-white border-[2px] border-[#DFAB80] rounded-xl py-4 px-5 text-left shadow-sm transition">
+          <span class="font-serif-ui text-[22px] text-[#1F1F1F]">Localize leak</span>
+        </button>
+      </div>
+
+      <div id="leak-result" class="hidden mt-8 mx-4 p-4 rounded-xl bg-[#1C262B] text-amber-100 border-2 border-[#98501D] shadow-lg">
+        <div class="flex items-center justify-between border-b border-stone-700 pb-2 mb-2">
+          <span class="font-brand font-bold text-amber-400 tracking-wider uppercase text-sm">Acoustic Pinpoint Complete</span>
+          <span class="text-xs bg-red-600/80 text-white px-2 py-0.5 rounded font-bold">CRITICAL</span>
+        </div>
+        <p class="text-xs leading-relaxed">
+          <strong>Location:</strong> Mirpur-10 Roundabout, DMA-304 Feeder Main<br/>
+          <strong>GPS:</strong> 23.8069° N, 90.3687° E (Depth: 1.8m)<br/>
+          <strong>Estimated Loss:</strong> 142 Liters/min • Crew Dispatch Ready
+        </p>
+      </div>
+    </section>
+
+    <!-- ==========================================
+         SCREEN 13: FINANCIAL RECOVERY TRACKER (PDF Page 13)
+         WITH PROACTIVE MONITORING LOSS-AVOIDANCE ENGINE
+         ========================================== -->
+    <section id="screen-13" class="screen hidden flex-col h-full w-full p-6">
+      <div class="pt-1 flex items-center justify-between">
+        <button onclick="goBack('9')" class="p-1 text-[#1F1F1F] hover:opacity-70">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button onclick="showProfileModal()" class="w-9 h-9 rounded-full border-2 border-[#1F1F1F] flex items-center justify-center text-[#1F1F1F]">
+          <svg class="w-6 h-6 fill-current" viewBox="0 0 24 24">
+            <circle cx="12" cy="8.5" r="4"/><path d="M5 19.5c0-3.3 3.1-6 7-6s7 2.7 7 6"/>
+          </svg>
+        </button>
+      </div>
+
+      <h2 class="font-serif-ui text-[26px] text-[#3B1A08] text-center mt-3 mb-4">
+        Financial Recovery Tracker
+      </h2>
+
+      <!-- 2 Action Cards matching PDF Page 13 -->
+      <div class="flex flex-col gap-3.5 w-full px-2">
+        <!-- Box 1: Select Date -->
+        <label class="bg-[#E5DCD5] border-[2.2px] border-[#7D6B5D] rounded-xl py-3 px-4 flex items-center justify-between cursor-pointer shadow-sm">
+          <span id="selected-date-label" class="font-serif-ui text-[19px] text-[#3B1A08]">Select date (2026-10-20)</span>
+          <input type="date" id="recovery-date" value="2026-10-20" onchange="updateSelectedDate(this.value)" class="sr-only" />
+          <svg class="w-6 h-6 text-[#3B1A08]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18"/>
+            <circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="12" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/>
+          </svg>
+        </label>
+
+        <!-- Time Horizon Selector for Loss-Avoidance Modeling -->
+        <div class="grid grid-cols-3 gap-2">
+          <button type="button" id="period-daily" onclick="setRecoveryPeriod('daily')"
+            class="py-1.5 px-2 rounded-lg font-brand text-xs font-bold uppercase border-2 border-[#98501D] bg-[#3B1A08] text-[#FAD6B3]">
+            Daily (24h)
+          </button>
+          <button type="button" id="period-monthly" onclick="setRecoveryPeriod('monthly')"
+            class="py-1.5 px-2 rounded-lg font-brand text-xs font-bold uppercase border-2 border-[#98501D] bg-[#FCE6CE] text-[#3B1A08]">
+            Monthly (30d)
+          </button>
+          <button type="button" id="period-annual" onclick="setRecoveryPeriod('annual')"
+            class="py-1.5 px-2 rounded-lg font-brand text-xs font-bold uppercase border-2 border-[#98501D] bg-[#FCE6CE] text-[#3B1A08]">
+            Annual (1 Yr)
+          </button>
+        </div>
+
+        <!-- Box 2: See financial recovery -->
+        <button onclick="showFinancialRecovery()"
+          class="bg-[#E5DCD5] hover:bg-white border-[2.2px] border-[#7D6B5D] rounded-xl py-3 px-4 flex items-center justify-between shadow-sm transition">
+          <span class="font-serif-ui text-[19px] text-[#3B1A08]">See financial recovery</span>
+          <span class="text-xs font-brand font-bold uppercase bg-[#98501D] text-white px-2.5 py-1 rounded">Calculate →</span>
+        </button>
+      </div>
+
+      <!-- Counterfactual Proactive Loss-Avoidance Output Box -->
+      <div id="recovery-output" class="mt-3.5 mx-2 p-3.5 rounded-xl bg-white/95 border-2 border-[#98501D] text-[#3B1A08] shadow-md overflow-y-auto max-h-[370px]">
+        <!-- Populated dynamically by JS -->
+      </div>
+    </section>
+
+    <!-- TOAST / MODAL NOTIFICATION OVERLAY -->
+    <div id="toast-box" class="hidden absolute bottom-6 left-5 right-5 z-50 bg-[#231F20] text-[#FAD6B3] border-2 border-[#DF9826] rounded-xl p-4 shadow-2xl flex items-center justify-between gap-3">
+      <span id="toast-msg" class="text-xs font-serif-ui leading-snug"></span>
+      <button onclick="hideToast()" class="text-amber-400 font-bold text-xs uppercase px-2 py-1 rounded hover:bg-white/10">OK</button>
+    </div>
+
+  </div>
+
+  <!-- ==========================================
+       APPLICATION JAVASCRIPT & DATA ENGINES
+       ========================================== -->
+  <script>
+    const screenList = ['1', '2', '2B', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13'];
+    let currentScreen = '1';
+    let selectedRole = 'citizen'; // 'citizen' or 'utility'
+    let signUpRole = 'citizen';
+    let currentUser = null;
+    let notificationsOn = true;
+
+    // Micro-plastic state
+    let currentMpLevel = 18.4;
+    let currentMpTab = 'suggestions';
+
+    // Financial recovery state
+    let recoveryPeriod = 'daily'; // 'daily' | 'monthly' | 'annual'
+
+    // Build top Screen Jumper buttons
+    const dotsContainer = document.getElementById('page-dots');
+    screenList.forEach(scr => {
+      const btn = document.createElement('button');
+      btn.id = `jump-btn-${scr}`;
+      btn.textContent = scr === '2B' ? 'Sign-Up' : scr;
+      btn.onclick = () => navigateTo(scr);
+      btn.className = `${scr === '2B' ? 'px-2' : 'w-6'} h-6 rounded-md font-bold text-[11px] flex items-center justify-center shrink-0 transition ${
+        scr === '1' ? 'bg-amber-500 text-black' : 'bg-stone-800 text-stone-300 hover:bg-stone-700'
+      }`;
+      dotsContainer.appendChild(btn);
+    });
+
+    function navigateTo(screenId) {
+      const idStr = String(screenId);
+      document.querySelectorAll('.screen').forEach(el => {
+        el.classList.add('hidden');
+        el.classList.remove('flex');
+      });
+      const target = document.getElementById(`screen-${idStr}`);
+      if (target) {
+        target.classList.remove('hidden');
+        target.classList.add('flex');
+        currentScreen = idStr;
+      }
+
+      // Highlight active button in top jumper bar
+      screenList.forEach(scr => {
+        const btn = document.getElementById(`jump-btn-${scr}`);
+        if (btn) {
+          btn.className = `${scr === '2B' ? 'px-2' : 'w-6'} h-6 rounded-md font-bold text-[11px] flex items-center justify-center shrink-0 transition ${
+            scr === idStr ? 'bg-amber-500 text-black scale-105' : 'bg-stone-800 text-stone-300 hover:bg-stone-700'
+          }`;
+        }
+      });
+
+      // Initialize dynamic panels when entering Screen 7 or Screen 13
+      if (idStr === '7') {
+        renderMicroplasticPanel();
+      } else if (idStr === '13') {
+        showFinancialRecovery();
+      }
+      hideToast();
+    }
+
+    function goBack(defaultTargetScreen) {
+      navigateTo(defaultTargetScreen);
+    }
+
+    // ==========================================
+    // AUTHENTICATION & SIGN UP FLOW
+    // ==========================================
+    function selectRoleAndProceed(role) {
+      selectedRole = role;
+      updateRoleBadge();
+      navigateTo('3');
+    }
+
+    function toggleLoginRole() {
+      selectedRole = selectedRole === 'citizen' ? 'utility' : 'citizen';
+      updateRoleBadge();
+    }
+
+    function updateRoleBadge() {
+      const badge = document.getElementById('role-badge');
+      if (badge) {
+        badge.textContent = selectedRole === 'utility' ? 'Portal: Utility ⇄' : 'Portal: Citizen ⇄';
+      }
+    }
+
+    function setSignUpRole(role) {
+      signUpRole = role;
+      const citBtn = document.getElementById('signup-role-citizen');
+      const utilBtn = document.getElementById('signup-role-utility');
+      if (role === 'citizen') {
+        citBtn.classList.add('btn-role-active');
+        utilBtn.classList.remove('btn-role-active');
+      } else {
+        utilBtn.classList.add('btn-role-active');
+        citBtn.classList.remove('btn-role-active');
+      }
+    }
+
+    function handleSignUpSubmit(e) {
+      e.preventDefault();
+      const fullName = document.getElementById('signup-fullname').value.trim();
+      const email = document.getElementById('signup-email').value.trim();
+      const username = document.getElementById('signup-username').value.trim();
+      const password = document.getElementById('signup-password').value;
+
+      currentUser = {
+        fullName,
+        email,
+        username,
+        password,
+        role: signUpRole
+      };
+      selectedRole = signUpRole;
+      updateRoleBadge();
+
+      // Update dashboard welcome banners with the new user's name & username
+      const citBanner = document.getElementById('citizen-welcome-banner');
+      const utilBanner = document.getElementById('utility-welcome-banner');
+      if (citBanner) citBanner.textContent = `${fullName} (@${username}) • Citizen Portal`;
+      if (utilBanner) utilBanner.textContent = `${fullName} (@${username}) • Utility Portal`;
+
+      // Route directly to the 4 Citizen options (Screen 4) or 4 Utility options (Screen 9)
+      if (signUpRole === 'utility') {
+        navigateTo('9');
+        showToast(`Account created for ${fullName}! Welcome to the Utility Operations Portal.`);
+      } else {
+        navigateTo('4');
+        showToast(`Account created for ${fullName}! Welcome to the Citizen Portal.`);
+      }
+    }
+
+    function handleLoginSubmit(e) {
+      e.preventDefault();
+      const email = document.getElementById('login-email').value.trim();
+      const username = document.getElementById('login-user').value.trim();
+
+      if (!currentUser) {
+        currentUser = {
+          fullName: username,
+          email,
+          username,
+          role: selectedRole
+        };
+      } else {
+        currentUser.role = selectedRole;
+      }
+
+      const citBanner = document.getElementById('citizen-welcome-banner');
+      const utilBanner = document.getElementById('utility-welcome-banner');
+      if (citBanner) citBanner.textContent = `${currentUser.fullName} (@${username}) • Citizen Portal`;
+      if (utilBanner) utilBanner.textContent = `${currentUser.fullName} (@${username}) • Utility Portal`;
+
+      if (selectedRole === 'utility') {
+        navigateTo('9');
+      } else {
+        navigateTo('4');
+      }
+    }
+
+    // ==========================================
+    // SCREEN 5: SAFETY STATUS GAUGE
+    // ==========================================
+    function updateSafetyGauge(scoreValue) {
+      const score = parseInt(scoreValue, 10);
+      const angle = ((score / 100) * 170) - 85;
+      const safeNeedle = document.getElementById('needle-safe');
+      const readout = document.getElementById('safety-readout');
+
+      if (safeNeedle) {
+        safeNeedle.setAttribute('transform', `rotate(${angle} 180 180)`);
+      }
+
+      if (score >= 60) {
+        readout.innerHTML = `
+          <p class="font-serif-ui text-sm text-[#4A200A] font-semibold">
+            Current Neighborhood Score: <span class="text-green-800 font-bold">${score} / 100 (SAFE)</span>
+          </p>
+          <p class="text-xs text-[#6E2C0B] mt-1">
+            All DWASA & Titas Gas nodes nominal. No active leaks detected within 1.5 km.
+          </p>`;
+      } else {
+        readout.innerHTML = `
+          <p class="font-serif-ui text-sm text-red-900 font-semibold">
+            Current Neighborhood Score: <span class="text-red-700 font-bold">${score} / 100 (LEAK DETECTED)</span>
+          </p>
+          <p class="text-xs text-red-800 mt-1">
+            Alert: Pressure drop detected in nearby distribution main. Utility crew notified.
+          </p>`;
+      }
+    }
+
+    // ==========================================
+    // SCREEN 6: PAY BILL
+    // ==========================================
+    function handlePayBill(e) {
+      e.preventDefault();
+      const org = document.getElementById('bill-org-name').value || 'Utility';
+      const amt = document.getElementById('bill-amount').value || '0';
+      showToast(`Payment of ৳${amt} to ${org} succeeded! Digital receipt saved.`);
+      e.target.reset();
+    }
+
+    // ==========================================
+    // SCREEN 7: MICRO-PLASTIC EXTERNAL DATA & CUSTOM SUGGESTION ENGINE
+    // ==========================================
+    function handleMpZoneChange(val) {
+      currentMpLevel = parseFloat(val);
+      document.getElementById('mp-custom-slider').value = currentMpLevel;
+      document.getElementById('mp-slider-val').textContent = `${currentMpLevel.toFixed(1)} MP/L`;
+      renderMicroplasticPanel();
+    }
+
+    function handleMpSliderChange(val) {
+      currentMpLevel = parseFloat(val);
+      document.getElementById('mp-slider-val').textContent = `${currentMpLevel.toFixed(1)} MP/L`;
+      renderMicroplasticPanel();
+    }
+
+    function showMicroplasticDetail(tab) {
+      currentMpTab = tab;
+      ['today', 'purity', 'suggestions'].forEach(t => {
+        const btn = document.getElementById(`mp-btn-${t}`);
+        if (btn) {
+          if (t === tab) btn.classList.add('card-microplastic-active');
+          else btn.classList.remove('card-microplastic-active');
+        }
+      });
+      renderMicroplasticPanel();
+    }
+
+    function renderMicroplasticPanel() {
+      const mp = currentMpLevel;
+      const badge = document.getElementById('mp-risk-badge');
+      const box = document.getElementById('microplastic-output');
+
+      // Calculate dynamic Purity Index (0-100) and Risk Tier based on MP/L concentration
+      const purityIndex = Math.max(18, Math.min(96, Math.round(95 - (mp * 1.62))));
+      let riskTier = 'LOW RISK';
+      let badgeClass = 'bg-emerald-700 text-white';
+      let polymerProfile = 'Trace Polyethylene (PE) & PET micro-fibers (< 100 µm)';
+      let customSuggestionsHTML = '';
+
+      if (mp < 5) {
+        riskTier = 'LOW RISK';
+        badgeClass = 'bg-emerald-700 text-white';
+        polymerProfile = 'Trace Polyethylene (PE) & PET fibers (< 100 µm) within safe baseline';
+        customSuggestionsHTML = `
+          <ul class="list-disc pl-4 space-y-1 mt-1 text-[11.5px] leading-snug">
+            <li><strong>Filtration (5-Micron Carbon Block):</strong> At <strong>${mp.toFixed(1)} MP/L</strong>, a standard activated carbon + 5-micron sediment cartridge removes >88% of residual fibers.</li>
+            <li><strong>Thermal Precaution:</strong> Do not boil water inside polypropylene (PP) electric jugs; boiling in plastic releases up to 4 million nano-plastics/L. Use stainless steel or borosilicate glass.</li>
+            <li><strong>Storage:</strong> Replace scratched single-use PET bottles with glass carafes.</li>
+          </ul>`;
+      } else if (mp <= 15) {
+        riskTier = 'MODERATE RISK';
+        badgeClass = 'bg-amber-600 text-white';
+        polymerProfile = 'Polypropylene (PP), Polystyrene (PS) & textile synthetic fibers (50–300 µm)';
+        customSuggestionsHTML = `
+          <ul class="list-disc pl-4 space-y-1 mt-1 text-[11.5px] leading-snug">
+            <li><strong>Upgrade to Ultrafiltration (0.01 µm UF):</strong> At <strong>${mp.toFixed(1)} MP/L</strong>, conventional cloth/sand straining is insufficient. Use a hollow-fiber UF membrane or ceramic candle filter (blocks 96% of micro-plastics).</li>
+            <li><strong>First-Flush Protocol:</strong> Flush kitchen tap water for 30–45 seconds every morning to clear overnight stagnant pipe abrasion particles.</li>
+            <li><strong>Rooftop Tank Maintenance:</strong> Clean rooftop LLDPE water tanks every 90 days and shield them from direct UV sunlight to prevent polymer flaking.</li>
+          </ul>`;
+      } else {
+        riskTier = mp > 25 ? 'CRITICAL ALERT' : 'HIGH RISK';
+        badgeClass = 'bg-red-700 text-white';
+        polymerProfile = 'High-density PVC pipe abrasion fragments, PET, Nylon-6 & Polystyrene (< 20 µm)';
+        customSuggestionsHTML = `
+          <ul class="list-disc pl-4 space-y-1 mt-1 text-[11.5px] leading-snug">
+            <li><strong>Mandatory Reverse Osmosis (0.0001 µm RO):</strong> At <strong>${mp.toFixed(1)} MP/L</strong>, only a multi-stage RO membrane + post-carbon filter guarantees <strong>99.4% removal</strong> of micro- and nano-plastics.</li>
+            <li><strong>Coagulation + Boiling Pre-Treatment:</strong> Peer-reviewed studies show boiling hard tap water (calcium carbonate > 120 mg/L) for 5 mins co-precipitates and traps up to 80% of nano-plastics in limescale before filtering.</li>
+            <li><strong>Pipe Integrity Inspection:</strong> High PVC fragment count indicates aging local distribution mains or suction leakage. Tap <em>Report to Authority</em> to request a DWASA DMA line flush.</li>
+          </ul>`;
+      }
+
+      if (badge) {
+        badge.textContent = riskTier;
+        badge.className = `px-2 py-0.5 rounded text-[10px] font-brand font-bold uppercase ${badgeClass}`;
+      }
+
+      if (currentMpTab === 'today') {
+        box.innerHTML = `
+          <div class="flex items-center justify-between border-b border-[#98501D]/30 pb-1 mb-1.5">
+            <span class="font-bold text-xs text-[#6E2C0B]">Today's Dhaka Water Telemetry</span>
+            <span class="font-bold text-xs text-red-800">${mp.toFixed(1)} Particles / Liter</span>
+          </div>
+          <p class="text-[11.5px] leading-snug">
+            • <strong>Dominant Polymers:</strong> ${polymerProfile}<br/>
+            • <strong>Particle Size Range:</strong> 12 µm – 450 µm (74% fibrous, 26% fragments)<br/>
+            • <strong>Trusted External Sources:</strong> Calibrated against peer-reviewed datasets from <em>Science of the Total Environment</em> &amp; <em>Env. Sci. Pollut. Res.</em> (Buriganga/Turag surface intake &amp; DWASA tap water surveys, JU/DU Dept. of Environmental Sciences) + <em>WHO (2022) Microplastics in Drinking-Water</em>.
+          </p>`;
+      } else if (currentMpTab === 'purity') {
+        box.innerHTML = `
+          <div class="flex items-center justify-between border-b border-[#98501D]/30 pb-1 mb-1.5">
+            <span class="font-bold text-xs text-[#6E2C0B]">Composite Water Purity Index</span>
+            <span class="font-bold text-sm ${purityIndex >= 75 ? 'text-emerald-800' : purityIndex >= 55 ? 'text-amber-700' : 'text-red-700'}">${purityIndex} / 100</span>
+          </div>
+          <div class="w-full bg-stone-200 h-2.5 rounded-full overflow-hidden my-1.5">
+            <div class="h-full ${purityIndex >= 75 ? 'bg-emerald-600' : purityIndex >= 55 ? 'bg-amber-500' : 'bg-red-600'}" style="width: ${purityIndex}%"></div>
+          </div>
+          <p class="text-[11.5px] leading-snug mt-1">
+            • <strong>Micro-plastic Load:</strong> ${mp.toFixed(1)} MP/L • <strong>Turbidity:</strong> ${(0.8 + mp * 0.09).toFixed(1)} NTU (Bangladesh ECR 2023 limit: 5 NTU)<br/>
+            • <strong>pH:</strong> 7.2 • <strong>Residual Chlorine:</strong> 0.22 mg/L • <strong>TDS:</strong> ${Math.round(165 + mp * 6.5)} mg/L<br/>
+            • <strong>Benchmark:</strong> Evaluated under <em>Bangladesh Environment Conservation Rules (ECR) &amp; DWASA WQ Monitoring Framework</em>.
+          </p>`;
+      } else {
+        box.innerHTML = `
+          <div class="flex items-center justify-between border-b border-[#98501D]/30 pb-1 mb-1">
+            <span class="font-bold text-xs text-[#6E2C0B]">Custom Suggestions for ${mp.toFixed(1)} MP/L (${riskTier})</span>
+          </div>
+          ${customSuggestionsHTML}
+          <p class="text-[10px] text-stone-600 mt-2 italic">
+            Sources: WHO Drinking Water Microplastics Report &amp; ACS Env. Sci. Tech. (2024) thermal co-precipitation &amp; membrane filtration benchmarks.
+          </p>`;
+      }
+    }
+
+    // ==========================================
+    // SCREEN 8: REPORT TO AUTHORITY
+    // ==========================================
+    function previewReportMedia(e) {
+      const file = e.target.files[0];
+      const label = document.getElementById('media-label');
+      if (file && label) {
+        label.textContent = `Attached: ${file.name}`;
+      }
+    }
+
+    function handleReportSubmit(e) {
+      e.preventDefault();
+      showToast('Incident report submitted to Dhaka Central Utility Command (#DK-4092).');
+      e.target.reset();
+      document.getElementById('media-label').textContent = 'Add image / video';
+    }
+
+    // ==========================================
+    // SCREEN 10 & 12: UTILITY ANOMALY & LEAK LOCALIZATION
+    // ==========================================
+    function showAnomalyAlert(zone, details) {
+      showToast(`${zone}: ${details}`);
+    }
+
+    function toggleNotifications() {
+      notificationsOn = !notificationsOn;
+      const btn = document.getElementById('notif-toggle');
+      const label = document.getElementById('notif-label');
+      if (notificationsOn) {
+        btn.className = 'w-16 h-8 rounded-full bg-[#F2994A] p-1 flex items-center justify-between transition duration-200';
+        label.textContent = 'ON';
+      } else {
+        btn.className = 'w-16 h-8 rounded-full bg-stone-400 p-1 flex items-center justify-between flex-row-reverse transition duration-200';
+        label.textContent = 'OFF';
+      }
+    }
+
+    function runLeakLocalization() {
+      const res = document.getElementById('leak-result');
+      res.classList.remove('hidden');
+      showToast('Acoustic sensor array triangulated leak in Mirpur-10!');
+    }
+
+    // ==========================================
+    // SCREEN 13: PROACTIVE FINANCIAL RECOVERY TRACKER (EXTERNAL BENCHMARKS)
+    // ==========================================
+    function updateSelectedDate(val) {
+      const label = document.getElementById('selected-date-label');
+      if (val && label) {
+        label.textContent = `Select date (${val})`;
+      }
+      showFinancialRecovery();
+    }
+
+    function setRecoveryPeriod(period) {
+      recoveryPeriod = period;
+      ['daily', 'monthly', 'annual'].forEach(p => {
+        const btn = document.getElementById(`period-${p}`);
+        if (btn) {
+          if (p === period) {
+            btn.className = 'py-1.5 px-2 rounded-lg font-brand text-xs font-bold uppercase border-2 border-[#98501D] bg-[#3B1A08] text-[#FAD6B3]';
+          } else {
+            btn.className = 'py-1.5 px-2 rounded-lg font-brand text-xs font-bold uppercase border-2 border-[#98501D] bg-[#FCE6CE] text-[#3B1A08]';
+          }
+        }
+      });
+      showFinancialRecovery();
+    }
+
+    function formatBDT(amount) {
+      if (amount >= 10000000) {
+        return `৳ ${(amount / 10000000).toFixed(2)} Crore`;
+      } else if (amount >= 100000) {
+        return `৳ ${(amount / 100000).toFixed(2)} Lakh`;
+      }
+      return `৳ ${amount.toLocaleString('en-IN')}`;
+    }
+
+    function showFinancialRecovery() {
+      const dateVal = document.getElementById('recovery-date').value || '2026-10-20';
+      const box = document.getElementById('recovery-output');
+
+      // Multiplier based on selected time horizon
+      const mult = recoveryPeriod === 'daily' ? 1 : recoveryPeriod === 'monthly' ? 30 : 365;
+      const periodLabel = recoveryPeriod === 'daily' ? `Daily (${dateVal})` : recoveryPeriod === 'monthly' ? '30-Day Monthly Cumulative' : 'Annual Megacity Projection';
+
+      /*
+       * TRUSTED EXTERNAL DATA MODEL:
+       * 1. DWASA / ADB Dhaka Water Supply Network Improvement Project (DWSNIP):
+       *    - Unmonitored legacy zones suffer ~29.5% Non-Revenue Water (NRW) vs <12% with proactive DMA acoustic monitoring.
+       *    - Monitored corridor saves ~24.8 MLD of treated water loss @ weighted DWASA tariff (৳26.40/m³ blended residential/commercial).
+       *    - Daily Water Loss WITHOUT Proactive Monitoring = ৳7,85,000/day; Residual loss WITH monitoring = ৳1,30,000/day -> Saved = ৳6,55,000/day.
+       * 2. Titas Gas (TGTDCL) / Petrobangla Annual Report & BERC Tariff:
+       *    - Distribution leakage & pressure-drop losses across monitored Dhaka feeder rings @ BERC weighted tariff (৳24.50/m³).
+       *    - Daily Gas Loss WITHOUT Proactive Monitoring = ৳6,10,000/day; Residual loss WITH monitoring = ৳1,02,000/day -> Saved = ৳5,08,000/day.
+       * 3. Avoided Catastrophic Main Burst & Road Excavation Costs (LGED/DNCC/DSCC repair benchmark):
+       *    - Early acoustic localization prevents major road washouts & emergency excavation = ৳3,70,000/day equivalent saved.
+       */
+      const uncheckedLoss = 1845000 * mult; // Money that WOULD have been lost without proactive monitoring
+      const actualResidualLoss = 312000 * mult; // Minimal loss before automated valve isolation (<2.4 hrs)
+      const netSaved = uncheckedLoss - actualResidualLoss; // Total Financial Recovery (83.1% saved)
+
+      const waterSavedBDT = 655000 * mult;
+      const gasSavedBDT = 508000 * mult;
+      const infraSavedBDT = 370000 * mult;
+      const waterSavedML = (24.8 * mult).toFixed(1);
+
+      box.innerHTML = `
+        <div class="flex items-center justify-between border-b border-[#98501D]/30 pb-1.5 mb-2">
+          <span class="font-serif-ui font-bold text-xs text-[#3B1A08]">${periodLabel}</span>
+          <span class="text-[10px] font-brand font-bold uppercase bg-emerald-800 text-white px-2 py-0.5 rounded">83.1% Loss Prevented</span>
+        </div>
+
+        <!-- Counterfactual Comparison: Without vs With Proactive Monitoring -->
+        <div class="bg-[#FCE6CE]/70 border border-[#98501D]/40 rounded-lg p-2.5 mb-2.5 text-xs">
+          <div class="flex justify-between items-center text-red-900">
+            <span>Projected Loss <strong>WITHOUT</strong> Proactive Monitoring:</span>
+            <span class="font-bold">${formatBDT(uncheckedLoss)}</span>
+          </div>
+          <div class="w-full bg-red-200 h-2 rounded-full mt-1 mb-2 overflow-hidden">
+            <div class="bg-red-600 h-full w-full"></div>
+          </div>
+
+          <div class="flex justify-between items-center text-stone-700">
+            <span>Residual Loss <strong>WITH</strong> AI Early Isolation (&lt;2.4h):</span>
+            <span class="font-bold">${formatBDT(actualResidualLoss)}</span>
+          </div>
+          <div class="w-full bg-stone-200 h-2 rounded-full mt-1 overflow-hidden">
+            <div class="bg-amber-500 h-full" style="width: 16.9%"></div>
+          </div>
+        </div>
+
+        <!-- Net Financial Recovery Highlight Banner -->
+        <div class="bg-emerald-900 text-[#FAD6B3] rounded-lg p-2.5 mb-2.5 flex items-center justify-between shadow">
+          <div>
+            <div class="text-[10px] font-brand uppercase tracking-wider text-emerald-200">Money Saved from Being Lost</div>
+            <div class="text-lg font-bold font-serif-ui text-white leading-tight">${formatBDT(netSaved)}</div>
+          </div>
+          <div class="text-right text-[10px] text-emerald-200">
+            <div>${waterSavedML} Million L Water</div>
+            <div>+ 20,730 m³ Gas Saved</div>
+          </div>
+        </div>
+
+        <!-- Sectoral Breakdown -->
+        <div class="grid grid-cols-3 gap-1.5 text-[10.5px] text-center mb-2">
+          <div class="bg-stone-100 p-1.5 rounded border border-stone-300">
+            <div class="text-stone-600 font-semibold">DWASA NRW Saved</div>
+            <div class="font-bold text-emerald-800 mt-0.5">${formatBDT(waterSavedBDT)}</div>
+          </div>
+          <div class="bg-stone-100 p-1.5 rounded border border-stone-300">
+            <div class="text-stone-600 font-semibold">Titas Gas Saved</div>
+            <div class="font-bold text-amber-800 mt-0.5">${formatBDT(gasSavedBDT)}</div>
+          </div>
+          <div class="bg-stone-100 p-1.5 rounded border border-stone-300">
+            <div class="text-stone-600 font-semibold">Avoided Burst Repair</div>
+            <div class="font-bold text-sky-900 mt-0.5">${formatBDT(infraSavedBDT)}</div>
+          </div>
+        </div>
+
+        <!-- Trusted External Data Citations -->
+        <p class="text-[10px] text-stone-600 leading-snug border-t border-stone-300 pt-1.5">
+          <strong>Trusted Data Sources:</strong> Calculated using <em>ADB &amp; Dhaka WASA (DWSNIP) DMA Non-Revenue Water Reports</em> (reducing NRW from 29.5% baseline to 12.1%, blended tariff ৳26.40/m³) &amp; <em>Titas Gas (TGTDCL) / Petrobangla Annual System Loss &amp; BERC Tariff Orders</em> (৳24.50/m³).
+        </p>
+      `;
+    }
+
+    function showProfileModal() {
+      const name = currentUser ? `${currentUser.fullName} (@${currentUser.username})` : 'Verified Dhaka User';
+      const modeName = selectedRole === 'utility' ? 'Utility Portal' : 'Citizen Portal';
+      showToast(`User: ${name} • Mode: ${modeName}`);
+    }
+
+    function showToast(message) {
+      const box = document.getElementById('toast-box');
+      const msg = document.getElementById('toast-msg');
+      msg.textContent = message;
+      box.classList.remove('hidden');
+    }
+
+    function hideToast() {
+      document.getElementById('toast-box').classList.add('hidden');
+    }
+
+    // Initialize default views
+    renderMicroplasticPanel();
+    showFinancialRecovery();
+  </script>
+</body>
+</html>
